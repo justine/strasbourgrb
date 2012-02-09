@@ -1,0 +1,9 @@
+fr:
+  errors:
+    messages:
+      record_invalid: "Données invalides"
+  activerecord:
+    models:
+      user: Utilisateur
+    attributes:
+      email: E-mail
