@@ -6,6 +6,21 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-		%p.notice= notice
-		%p.alert= alert
+    %h1 Strasbourg.rb
+    %p.notice= notice
+    %p.alert= alert
+		
+    - if current_user
+      #logged
+        Welcome
+        = link_to current_user.username, edit_user_registration_path(current_user)
+        = link_to "Logout", destroy_user_session_path, :method => :delete
+        %p Prochain apéro
+
+        %p Apéro passés
+
+        %p Twitter box
+    - else
+      = link_to "Se connecter", new_user_session_path
+			
     = yield

@@ -1,4 +1,6 @@
 Strasbourgrb31::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -9,6 +11,7 @@ Strasbourgrb31::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match '/auth/twitter/callback' => 'sessions#create'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
