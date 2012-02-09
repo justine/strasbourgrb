@@ -5,7 +5,13 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+    %meta{ :name => "viewport", :content => "initial-scale=1.0, user-scalable=no" }
+    %style{ :type => "text/css" }
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100px; }
+    %script{ :type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyATL349go1uO__rqOWl2Lj1P_-MiZpXXN0&sensor=false" }
+  %body{ :onload => "initialize()" }
     %h1 Strasbourg.rb
     %p.notice= notice
     %p.alert= alert
@@ -15,6 +21,9 @@
         Welcome
         = link_to current_user.username, edit_user_registration_path(current_user)
         = link_to "Logout", destroy_user_session_path, :method => :delete
+
+        %div#map_canvas{ :style => "width:450px; height:450px" }
+
         %p Prochain apéro
 
         %p Apéro passés
@@ -24,3 +33,13 @@
       = link_to "Se connecter", new_user_session_path
 			
     = yield
+
+:javascript
+  function initialize() {
+    var myOptions = {
+      center: new google.maps.LatLng(48.583148, 7.747882),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  }
