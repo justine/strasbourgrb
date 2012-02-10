@@ -70,7 +70,14 @@
 
 :javascript
 
-  $(document).ready(function() {    
+  $(document).ready(function() {
+    $('.field_with_errors').addClass('control-group error')
+    $('.field_with_errors label').addClass('control-label')
+    $('.field_with_errors label').attr('for', 'inputError')
+    $('.field_with_errors').removeClass('field_with_errors')
+
+    $('#error_explanation').addClass('alert alert-error')
+    $('#error_explanation h2').addClass('alert-heading')
   })
 
   function initialize() {

@@ -1,12 +1,14 @@
 %div{ :class => "row" }
-  %div{ :class => "span12" }
-    %div{ :class => "alert alert-error" }
-      %a{ :class => "close" } x
-      %h4{ :class => "alert-heading" } Error!
-      = alert
+  - if alert
+    %div{ :class => "span12" }
+      %div{ :class => "alert alert-error" }
+        %a{ :class => "close" } x
+        %h4{ :class => "alert-heading" } Error!
+        = alert
 
-  %div{ :class => "span12" }
-    %div{ :class => "alert alert-success" }
-      %a{ :class => "close" } x
-      %h4{ :class => "alert-heading" } Notice!
-      = notice
+  - if notice
+    %div{ :class => "span12" }
+      %div{ :class => "alert alert-success" }
+        %a{ :class => "close" } x
+        %h4{ :class => "alert-heading" } Notice!
+        = notice
