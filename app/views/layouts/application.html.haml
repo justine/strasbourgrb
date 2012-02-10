@@ -11,10 +11,52 @@
       body { height: 100%; margin: 0; padding: 0 }
       #map_canvas { height: 100px; }
     %script{ :type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyATL349go1uO__rqOWl2Lj1P_-MiZpXXN0&sensor=false" }
+  
+  <!-- BEGIN BODY -->
   %body{ :onload => "initialize()" }
-    %h1 Strasbourg.rb
-    %p.notice= notice
-    %p.alert= alert
+    <!-- BEGIN NAV BAR -->
+    %div{ :class =>"navbar" }
+      %div{ :class => "navbar-inner" }
+        %div{ :class => "container" }
+          = link_to "Strasbourg.rb", '#', { :class => "navbar brand" }
+    <!-- END NAV BAR -->
+
+    <!-- BEGIN ALERTS CONTAINER -->
+    %div{ :class => "container" }
+      %div{ :class => "row" }
+        %div{ :class => "span12" }
+          %div{ :class => "alert alert-error" }
+            %a{ :class => "close" } x
+            %h4{ :class => "alert-heading" } Error!
+            = alert
+
+        %div{ :class => "span12" }
+          %div{ :class => "alert alert-success" }
+            %a{ :class => "close" } x
+            %h4{ :class => "alert-heading" } Notice!
+            = notice
+    <!-- END ALERTS CONTAINER -->
+
+    <!-- BEGIN GLOBAL CONTAINER -->
+    %div{ :class => "container" }
+      %div{ :class => "row" }
+        <!-- BEGIN GMAPS CONTAINER -->
+        %div{ :class => "span12", :style => "background-color: red" }
+          %div#map_canvas{ :style => "width:450px; height:450px" }
+        <!-- END GMAPS CONTAINER -->
+
+        <!- BEGIN PRINCIPAL CONTENT -->
+        %div{ :class => "span8", :style => "background-color: yellow" }
+          %p Prochain apéro
+
+          %p Apéro passés
+        <!-- END PRINCIPAL CONTENT -->
+
+        <!-- BEGIN SECONDARY CONTENT -->
+        %div{ :class => "span4", :style => "background-color: purple" }
+          %p Twitter box
+        <!-- END SECONDARY CONTENT -->
+    <!-- END GLOBAL CONTAINER -->
 		
     - if current_user
       #logged
@@ -22,19 +64,15 @@
         = link_to current_user.username, edit_user_registration_path(current_user)
         = link_to "Logout", destroy_user_session_path, :method => :delete
 
-        %div#map_canvas{ :style => "width:450px; height:450px" }
-
-        %p Prochain apéro
-
-        %p Apéro passés
-
-        %p Twitter box
     - else
       = link_to "Se connecter", new_user_session_path
 			
     = yield
 
 :javascript
+  $(document).ready(function() {
+  })
+
   function initialize() {
     var myOptions = {
       center: new google.maps.LatLng(48.583148, 7.747882),
