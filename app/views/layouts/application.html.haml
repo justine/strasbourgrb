@@ -21,13 +21,14 @@
         %div{ :class => "container" }
           = link_to "Strasbourg.rb", '#', { :class => "brand" }
           - if current_user
-            %p.navbar-text.pull-right= link_to "Logout", destroy_user_session_path, :method => :delete
+            %p.pull-right= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-danger"
+            %p.pull-right{ :style => "margin-right: 20px;"}
             %p.navbar-text.pull-right
               Welcome
-              = link_to current_user.username, edit_user_registration_path(current_user)
+              = link_to current_user.username, edit_user_registration_path
 
           - else
-            %p.navbar-text.pull-right= link_to "Se connecter", new_user_session_path
+            %p.pull-right= link_to "Se connecter", new_user_session_path, :class => "btn btn-primary"
     <!-- END NAV BAR -->
 
     %div{ :class => "container" }
@@ -38,19 +39,18 @@
       <!-- BEGIN GLOBAL CONTAINER -->
       %div{ :class => "row" }
         <!-- BEGIN GMAPS CONTAINER -->
-        - if current_user
+        - if current_user && controller.controller_name != "registrations"
           %div{ :class => "span12" }
             %div#map_canvas{ :style => "width:1170px; height:400px" }
         <!-- END GMAPS CONTAINER -->
 
         <!-- BEGIN PRINCIPAL CONTENT -->
         %div{ :class => "span8" }
-          - if current_user
+          - if current_user && controller.controller_name != "registrations"
             %p Prochain apéro
 
             %p Apéro passés
-          - else
-            = yield
+          = yield
 
         <!-- END PRINCIPAL CONTENT -->
 
