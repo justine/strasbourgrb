@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20120213085042) do
   create_table "events", :force => true do |t|
     t.string   "title"
     t.string   "address"
+    t.string   "city"
+    t.string   "zip_code"
     t.time     "hour_begin"
     t.time     "hour_end"
     t.text     "description"

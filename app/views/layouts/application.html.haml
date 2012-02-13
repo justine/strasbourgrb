@@ -40,16 +40,28 @@
       %div{ :class => "row" }
         <!-- BEGIN GMAPS CONTAINER -->
         - if current_user && controller.controller_name != "registrations"
-          %div{ :class => "span12" }
-            %div#map_canvas{ :style => "width:1170px; height:400px" }
+          %div{ :class => "span12 well" }
+            %div#map_canvas{ :style => "width:1150px; height:400px" }
         <!-- END GMAPS CONTAINER -->
 
         <!-- BEGIN PRINCIPAL CONTENT -->
         %div{ :class => "span8" }
           - if current_user && controller.controller_name != "registrations"
-            %p Prochain apéro
-
-            %p Apéro passés
+            %div.well
+              %h1 Prochain événement
+              - if @next_event.any?
+                %h2= @next_event.title
+                %p= @next_event.description
+                %address= @next_event.address
+              - else
+                %p Aucun événement n'est programmé pour le moment...
+            %div.well
+              %h1 Événements passés
+              - if @past_events.any?
+                - @past_events.each do |event|
+                  %h2= event.title
+                  %p= event.description
+                  %address= event.address
           - else 
             %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida eleifend tincidunt. Vivamus quis risus libero, vitae eleifend urna. Nullam ultricies, sem eu sollicitudin mattis, mauris turpis aliquam quam, id ultrices metus tortor vel orci. Duis molestie lectus non dolor imperdiet dictum. Nam nec semper tortor. Duis iaculis egestas imperdiet. Nullam a felis vel tellus dictum faucibus vitae ut elit. Etiam tellus nibh, vulputate ut ultricies quis, dictum sed elit. Aenean a purus eros, sed ornare ipsum.
             %p Etiam arcu metus, tincidunt quis convallis eget, rhoncus ut diam. Fusce cursus porta mauris ac tempus. Sed a tortor tortor, luctus facilisis elit. Nullam congue purus non sem imperdiet fermentum. Nam tincidunt eleifend odio, pharetra gravida metus commodo eu. Mauris vulputate, justo nec volutpat auctor, nunc leo laoreet erat, elementum interdum nulla augue eu purus. Etiam scelerisque, sapien at eleifend bibendum, est turpis interdum massa, vel malesuada purus lorem posuere augue.
@@ -63,7 +75,7 @@
         <!-- END PRINCIPAL CONTENT -->
 
         <!-- BEGIN SECONDARY CONTENT -->
-        %div{ :class => "span4" }
+        %div{ :class => "span3 well" }
           = render "shared/social/twitter_button"
           = render "shared/social/twitter_widget"        
           = render "shared/social/likebox"

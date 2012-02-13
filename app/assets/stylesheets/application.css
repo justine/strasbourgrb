@@ -7,5 +7,17 @@
 */
 
 body {
-	background-color: green;
+	background-color: #EEE;
+}
+
+.custom-block {
+	margin: 15px 0 15px 0;
+	background-color: white;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	padding: 10px 0 10px 0;
 }
