@@ -16,7 +16,7 @@
   = f.label :password_confirmation
   = f.password_field :password_confirmation, { :class => "span3" }
   %br
-  = f.submit "Sign up", { :class => "btn" }
+  = f.submit "Créer mon compte", { :class => "btn" }
   %span{ :style => "padding: 5px;" } ou
   - resource_class.omniauth_providers.each do |provider|
     = link_to image_tag("btn_#{provider.to_s}_connect.png", :alt => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)

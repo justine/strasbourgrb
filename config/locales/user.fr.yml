@@ -6,4 +6,21 @@ fr:
     models:
       user: Utilisateur
     attributes:
-      email: E-mail
+      user:
+        username: Login
+        password: Mot de passe
+        email: E-mail
+        password_confirmation: Confirmation du mot de passe
+        current_password: Mot de passe actuel
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: "doit être renseigné"
+            current_password:
+              blank: "doit être renseigné"
+            password:
+              blank: "doit être renseigné"
+              too_short: "doit comporter 6 caractères minimum"
+              confirmation: "doit être confirmé dans le champ \"Confirmation du mot de passe\""
