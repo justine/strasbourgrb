@@ -50,15 +50,23 @@
             %p Prochain apéro
 
             %p Apéro passés
+          - else 
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida eleifend tincidunt. Vivamus quis risus libero, vitae eleifend urna. Nullam ultricies, sem eu sollicitudin mattis, mauris turpis aliquam quam, id ultrices metus tortor vel orci. Duis molestie lectus non dolor imperdiet dictum. Nam nec semper tortor. Duis iaculis egestas imperdiet. Nullam a felis vel tellus dictum faucibus vitae ut elit. Etiam tellus nibh, vulputate ut ultricies quis, dictum sed elit. Aenean a purus eros, sed ornare ipsum.
+            %p Etiam arcu metus, tincidunt quis convallis eget, rhoncus ut diam. Fusce cursus porta mauris ac tempus. Sed a tortor tortor, luctus facilisis elit. Nullam congue purus non sem imperdiet fermentum. Nam tincidunt eleifend odio, pharetra gravida metus commodo eu. Mauris vulputate, justo nec volutpat auctor, nunc leo laoreet erat, elementum interdum nulla augue eu purus. Etiam scelerisque, sapien at eleifend bibendum, est turpis interdum massa, vel malesuada purus lorem posuere augue.
+            %p Sed scelerisque dui leo, sed convallis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent quis tellus vitae ipsum congue condimentum. In gravida lacinia velit, ac interdum nisi faucibus ac. Integer facilisis ultrices nisi ut blandit. Morbi pharetra elementum mattis. Nulla facilisi.
+            %p Curabitur ornare molestie sem quis aliquet. Maecenas hendrerit, erat vitae molestie facilisis, elit nibh vehicula elit, eget posuere turpis quam in purus. Integer ut est nec ipsum cursus commodo vel eget tellus. Proin tempor augue ut justo ultrices congue. In rhoncus cursus laoreet. Sed vitae porta velit. Donec felis augue, vestibulum vitae placerat ac, eleifend a dui. Curabitur mattis neque sit amet massa feugiat dignissim. Vivamus semper dui nec purus elementum rhoncus. Nullam neque enim, venenatis vitae dictum et, volutpat id erat. Vestibulum id erat nisl. Mauris ac purus ut nisl feugiat mollis pulvinar ac elit. Vivamus ac pellentesque risus.
+            %p Etiam non auctor lacus. Aliquam elit sem, laoreet sit amet imperdiet et, commodo ultrices nibh. Phasellus ornare purus est. Sed congue odio eu ipsum vulputate luctus. Fusce luctus lobortis turpis eu pretium. Aenean vestibulum molestie est eu malesuada. Curabitur tellus lectus, scelerisque ac blandit quis, malesuada a arcu. Duis egestas viverra dui, ut mollis turpis pharetra at. Mauris id laoreet arcu. Fusce vel ipsum quis nibh vulputate congue in sed metus. Integer placerat risus purus. Nam magna quam, posuere et ultrices vel, rhoncus quis arcu. Donec aliquet adipiscing viverra.
+            %p Vivamus a justo non purus pharetra dapibus. Ut turpis enim, auctor vel fermentum et, dictum nec neque. Suspendisse ut lectus ac sapien congue rhoncus. Integer id libero nibh. Integer convallis, diam sed semper ullamcorper, arcu enim posuere justo, eu faucibus diam ante nec tortor. Vestibulum porttitor lobortis diam, et elementum felis condimentum vel. Nunc placerat lectus ut purus egestas euismod sagittis erat aliquam. Vestibulum et nisl vel dui porta cursus ut non ante. Vestibulum a nisl lacinia lacus accumsan elementum eu sit amet ante. Proin non ligula blandit est dictum cursus. Phasellus at leo placerat metus tempor tincidunt.
+            %p Proin tempor mollis enim, nec venenatis neque auctor ac. Cras tempor tellus sed est pellentesque bibendum. Maecenas non felis vitae urna ultrices fermentum at sit amet diam. Fusce consectetur ullamcorper consectetur. Mauris sit amet velit quis ipsum elementum adipiscing et a eros. Sed vulputate mi sed lorem lacinia non ultricies ligula ullamcorper. Curabitur accumsan dapibus ultrices. Donec a ipsum neque, vel aliquet nibh. Pellentesque eu vestibulum massa.
           = yield
 
         <!-- END PRINCIPAL CONTENT -->
 
         <!-- BEGIN SECONDARY CONTENT -->
         %div{ :class => "span4" }
-          = render "shared/social/twitter_button"        
+          = render "shared/social/twitter_button"
+          = render "shared/social/twitter_widget"        
           = render "shared/social/likebox"
-          = render "shared/social/twitter_widget"
         <!-- END SECONDARY CONTENT -->
       <!-- END GLOBAL CONTAINER -->
 
