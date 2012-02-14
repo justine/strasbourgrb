@@ -1,11 +1,17 @@
-#events
-	-#= render "next_events", :events => @events
+- if current_user && controller.controller_name != "registrations"
+  %div.special-well.row
+    %div.span5.special
+      %h1 Prochain événement
+      - if @next_event.present?
+        = render :partial => "events/event", :locals => { :event => @next_event }
+      - else
+        %p Aucun événement n'est programmé pour le moment...
+    %div.span3
+      = render :partial => "shared/social/twitter_share", :locals => { :event => @next_event }
+      = render :partial => "shared/social/likebutton", :locals => { :event => @next_event }
+      = render :partial => "shared/social/googleplus_button", :locals => { :event => @next_event }
 
-#posts
-	-#= render "last_posts", :posts => @posts
-
-#tweets
-	<!--<%= render "last_tweets", :tweets => @tweets %>-->
-
-.clear
-.more
+  %div.well.row
+    %h1 Événements passés
+    - if @past_events.any?
+      = render :partial => "events/event", :collection => @past_events

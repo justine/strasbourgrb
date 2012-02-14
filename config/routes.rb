@@ -1,8 +1,4 @@
 Strasbourgrb31::Application.routes.draw do
-  get "events/index"
-
-  get "events/show"
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation:
@@ -19,6 +15,7 @@ Strasbourgrb31::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :events, :path => "evenements", :only => [ :show, :index ]
 
   # Sample resource route with options:
   #   resources :products do

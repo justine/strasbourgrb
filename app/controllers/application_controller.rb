@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   def index
     @users_count = User.all.size
-    @next_event = Event.where("date_begin >= ?", Date.today)
+    @next_event = Event.where("date_begin >= ?", Date.today).first
     @past_events = Event.where("date_begin < ?", Date.today).order("date_begin desc")
   end
 end

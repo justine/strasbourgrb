@@ -1,0 +1,17 @@
+%div.well
+  %h1= @event.title
+  %p= @event.description
+  %address
+    %strong= @event.venue
+    %br
+    = @event.address
+    %br
+    = @event.zip_code + " " + @event.city
+
+  %div#map_canvas{ :style => "width:720px; height:400px" }
+
+  = render :partial => "shared/social/twitter_share", :locals => { :event => @event }
+  = render :partial => "shared/social/likebutton", :locals => { :event => @event }
+  = render :partial => "shared/social/googleplus_button", :locals => { :event => @event }
+
+  %p Commentaires à venir...

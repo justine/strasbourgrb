@@ -10,6 +10,7 @@ gem 'paperclip'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'friendly_id', '~> 4.0.0', :require => "friendly_id"
 
 # Gems used only for assets and not required
 # in production environments by default.

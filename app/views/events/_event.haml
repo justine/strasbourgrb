@@ -1,0 +1,10 @@
+%h2= event.title
+%p
+  = truncate event.description, :length => 200
+  = link_to "(lire la suite)", event_path(event.slug)
+%address
+  %strong= event.venue
+  %br
+  = event.address
+  %br
+  = event.zip_code + " " + event.city

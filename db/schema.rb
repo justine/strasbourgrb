@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20120213085042) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
+    t.string   "venue"
     t.string   "address"
     t.string   "city"
     t.string   "zip_code"
@@ -22,9 +23,12 @@ ActiveRecord::Schema.define(:version => 20120213085042) do
     t.text     "description"
     t.date     "date_begin"
     t.string   "link"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
