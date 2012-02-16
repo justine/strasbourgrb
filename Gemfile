@@ -32,9 +32,6 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-group :production do
+group :development do
   gem 'ruby-debug19'
 end
-
-gem 'ruby-debug'
-
