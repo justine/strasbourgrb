@@ -8,7 +8,7 @@ gem 'will_paginate'
 gem 'htmlentities'
 gem 'paperclip'
 gem 'devise'
-gem 'omniauth'
+#gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'friendly_id', '~> 4.0.0', :require => "friendly_id"
 
