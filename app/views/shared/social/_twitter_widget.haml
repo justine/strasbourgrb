@@ -1,0 +1,26 @@
+:javascript
+  new TWTR.Widget({
+    version: 2,
+    type: 'profile',
+    rpp: 5,
+    interval: 30000,
+    width: 250,
+    height: 300,
+    theme: {
+      shell: {
+        background: '#616161',
+        color: '#ffffff'
+      },
+      tweets: {
+        background: '#ffffff',
+        color: '#000000',
+        links: '#ff3636'
+      }
+    },
+    features: {
+      scrollbar: false,
+      loop: false,
+      live: true,
+      behavior: 'all'
+    }
+  }).render().setUser('rubysxb').start();

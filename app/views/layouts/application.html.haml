@@ -1,0 +1,88 @@
+!!!
+%html
+  %head
+    %title Strasbourgrb
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{ :name => "viewport", :content => "initial-scale=1.0, user-scalable=no" }
+    %style{ :type => "text/css" }
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100px; }
+    %script{ :type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyATL349go1uO__rqOWl2Lj1P_-MiZpXXN0&sensor=false" }
+    %script{ :charset => "utf-8", :src => "http://widgets.twimg.com/j/2/widget.js" }
+  
+  <!-- BEGIN BODY -->
+  %body{ :onload => "initialize()" }
+    <!-- BEGIN NAV BAR -->
+    %div{ :class =>"navbar" }
+      %div{ :class => "navbar-inner" }
+        = image_tag("beta.jpeg", :style => "position: absolute; top: 45px; left: 0px;")
+        %div{ :class => "container" }
+          = link_to "Strasbourg.rb", '#', { :class => "brand" }
+          - if current_user
+            %p.pull-right= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-danger"
+            %p.pull-right{ :style => "margin-right: 20px;"}
+            %p.navbar-text.pull-right
+              Welcome
+              = link_to current_user.username, edit_user_registration_path
+
+          - else
+            %p.pull-right= link_to "Se connecter", new_user_session_path, :class => "btn btn-primary"
+    <!-- END NAV BAR -->
+
+    %div.container
+      <!-- BEGIN ALERTS CONTAINER -->
+      = render  "shared/alert"
+      <!-- END ALERTS CONTAINER -->
+
+      <!-- BEGIN GLOBAL CONTAINER -->
+      %div.row
+        <!-- BEGIN GMAPS CONTAINER -->
+        - if current_user && controller.controller_name == "application"
+          %div.well.span12
+            %div#map_canvas{ :style => "width:1150px; height:400px" }
+        <!-- END GMAPS CONTAINER -->
+
+        <!-- BEGIN PRINCIPAL CONTENT -->
+        %div.span8
+          = yield
+
+        <!-- END PRINCIPAL CONTENT -->
+
+        <!-- BEGIN SECONDARY CONTENT -->
+        %div.well.span3
+          = render "shared/social/twitter_button"
+          = render "shared/social/twitter_widget"        
+          = render "shared/social/likebox"
+        <!-- END SECONDARY CONTENT -->
+      <!-- END GLOBAL CONTAINER -->
+
+      %hr
+      %footer.footer
+        %p À propos
+        %p.pull-right
+          ©
+          = link_to "Toutielicious", "http://blog.toutielicious.fr"
+
+:javascript
+
+  $(document).ready(function() {
+    $('.field_with_errors').addClass('control-group error')
+    $('.field_with_errors label').addClass('control-label')
+    $('.field_with_errors label').attr('for', 'inputError')
+    $('.field_with_errors').removeClass('field_with_errors')
+
+    $('#error_explanation').addClass('alert alert-error')
+    $('#error_explanation h2').addClass('alert-heading')
+  })
+
+  function initialize() {
+    var myOptions = {
+      center: new google.maps.LatLng(48.583148, 7.747882),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  }

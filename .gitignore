@@ -1,0 +1,12 @@
+.DS_Store
+public/.DS_Store
+vendor/bundled_gems
+log/*
+public/system/*
+.bundle/config
+.rvmrc
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  hour_begin: 2012-02-13 09:50:43
+  hour_end: 2012-02-13 09:50:43
+  description: MyText
+  date_begin: 2012-02-13
+  link: MyString
+
+two:
+  title: MyString
+  hour_begin: 2012-02-13 09:50:43
+  hour_end: 2012-02-13 09:50:43
+  description: MyText
+  date_begin: 2012-02-13
+  link: MyString

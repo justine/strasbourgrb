@@ -1,0 +1,22 @@
+%h2 Se créer un compte
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "well" }) do |f|
+  %p= link_to "En fait, j'ai déjà un compte !", new_session_path(resource_name)
+  
+  = devise_error_messages!
+  = f.label :username
+  = f.text_field :username, { :class => "span3" }
+  
+  = f.label :email
+  = f.email_field :email, { :class => "span3" }
+
+  = f.label :password
+  = f.password_field :password, { :class => "span3" }
+  %span.help-inline Le mot de passe doit contenir 6 caractères minimum
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation, { :class => "span3" }
+  %br
+  = f.submit "Créer mon compte", { :class => "btn" }
+  %span{ :style => "padding: 5px;" } ou
+  - resource_class.omniauth_providers.each do |provider|
+    = link_to image_tag("btn_#{provider.to_s}_connect.png", :alt => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)
