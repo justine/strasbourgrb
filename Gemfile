@@ -33,5 +33,5 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 group :development do
-  gem 'ruby-debug19'
+  gem 'ruby-debug'
 end
