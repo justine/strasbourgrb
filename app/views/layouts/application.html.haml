@@ -18,9 +18,10 @@
     <!-- BEGIN NAV BAR -->
     %div{ :class =>"navbar" }
       %div{ :class => "navbar-inner" }
-        = image_tag("beta.jpeg", :style => "position: absolute; top: 45px; left: 0px;")
+        /= image_tag("beta.jpeg", :style => "position: absolute; top: 45px; left: 0px;")
         %div{ :class => "container" }
-          = link_to "Strasbourg.rb", '#', { :class => "brand" }
+          = link_to image_tag("logo_simple.png", :size => "209x40"), '#', { :class => "brand" }
+          /= link_to "Strasbourg.rb", '#', { :class => "brand" }
           - if current_user
             %p.pull-right= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-danger"
             %p.pull-right{ :style => "margin-right: 20px;"}
